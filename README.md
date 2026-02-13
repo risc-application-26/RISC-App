@@ -2,7 +2,7 @@
 
 **Why we engineered a system that pays us to be fragile.**
 
-A data-driven demonstration of how fintech tools can solve climate disaster resilience — built as an application for RISC.
+A data-driven demonstration of how different tools and mechanisms can help solve climate disaster resilience — built as an application for RISC.
 
 ## 🚀 Live Demo
 
