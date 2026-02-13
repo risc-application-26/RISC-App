@@ -231,6 +231,7 @@ st.markdown("""
     }
 
     /* Sidebar text - force white on dark green gradient */
+    [data-testid="stSidebar"],
     [data-testid="stSidebar"] *,
     [data-testid="stSidebar"] p,
     [data-testid="stSidebar"] span,
@@ -240,64 +241,85 @@ st.markdown("""
     [data-testid="stSidebar"] h2,
     [data-testid="stSidebar"] h3,
     [data-testid="stSidebar"] h4,
-    [data-testid="stSidebar"] li {
-        color: white !important;
+    [data-testid="stSidebar"] h5,
+    [data-testid="stSidebar"] h6,
+    [data-testid="stSidebar"] li,
+    [data-testid="stSidebar"] strong,
+    [data-testid="stSidebar"] em,
+    [data-testid="stSidebar"] small,
+    [data-testid="stSidebar"] a {
+        color: #ffffff !important;
     }
 
     /* Sidebar slider values */
     [data-testid="stSidebar"] .stSlider [data-testid="stTickBarMin"],
-    [data-testid="stSidebar"] .stSlider [data-testid="stTickBarMax"] {
-        color: white !important;
+    [data-testid="stSidebar"] .stSlider [data-testid="stTickBarMax"],
+    [data-testid="stSidebar"] .stSlider label,
+    [data-testid="stSidebar"] .stSlider * {
+        color: #ffffff !important;
     }
 
     /* Sidebar markdown text */
     [data-testid="stSidebar"] .stMarkdown,
-    [data-testid="stSidebar"] .stMarkdown * {
-        color: white !important;
+    [data-testid="stSidebar"] .stMarkdown *,
+    [data-testid="stSidebar"] .stMarkdown p,
+    [data-testid="stSidebar"] .stMarkdown span,
+    [data-testid="stSidebar"] .stMarkdown div {
+        color: #ffffff !important;
+    }
+
+    /* Sidebar captions and help text */
+    [data-testid="stSidebar"] .stCaptionContainer,
+    [data-testid="stSidebar"] small,
+    [data-testid="stSidebar"] [data-testid="stCaptionContainer"] {
+        color: #ffffff !important;
     }
 
     /* SIDEBAR SELECTBOX */
     /* Label */
     [data-testid="stSidebar"] .stSelectbox label {
-        color: white !important;
+        color: #ffffff !important;
     }
 
     /* Selected value box - multiple selectors for higher specificity */
     [data-testid="stSidebar"] .stSelectbox > div:first-child > div,
     [data-testid="stSidebar"] .stSelectbox [data-baseweb="select"],
     [data-testid="stSidebar"] .stSelectbox [data-baseweb="select"] > div {
-        background-color: black !important;
-        color: white !important;
+        background-color: #000000 !important;
+        color: #ffffff !important;
     }
 
     /* Sidebar selectbox input/value display */
     [data-testid="stSidebar"] .stSelectbox input,
     [data-testid="stSidebar"] .stSelectbox [role="button"] {
-        background-color: black !important;
-        color: white !important;
+        background-color: #000000 !important;
+        color: #ffffff !important;
     }
 
     /* GLOBAL DROPDOWN STYLING - Nuclear option with maximum specificity */
     body ul[role="listbox"] {
-        background-color: black !important;
+        background-color: #000000 !important;
     }
 
     body ul[role="listbox"] li[role="option"] {
-        background-color: black !important;
-        color: white !important;
+        background-color: #000000 !important;
+        color: #ffffff !important;
         font-weight: normal !important;
+        opacity: 1 !important;
     }
 
     body ul[role="listbox"] li[role="option"] span,
     body ul[role="listbox"] li[role="option"] div,
     body ul[role="listbox"] li[role="option"] p,
     body ul[role="listbox"] li[role="option"] * {
-        color: white !important;
+        color: #ffffff !important;
         background-color: transparent !important;
+        opacity: 1 !important;
     }
 
     body ul[role="listbox"] li[role="option"]:hover {
         background-color: #1a5a3a !important;
+        color: #ffffff !important;
     }
 
     /* Custom alert boxes */
