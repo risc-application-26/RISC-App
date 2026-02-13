@@ -128,7 +128,7 @@ st.markdown("""
         color: #2c3e50 !important;
         background-color: white !important;
     }
-    
+
     /* Number input increment/decrement buttons */
     .stNumberInput button {
         color: white !important;
@@ -144,7 +144,7 @@ st.markdown("""
         color: white !important;
         fill: white !important;
     }
-    
+
     /* Selectbox dropdown styling - comprehensive */
     .stSelectbox > div > div {
         color: #2c3e50 !important;
@@ -369,57 +369,68 @@ def calculate_risk_multiplier(warming, sea_level, storm_freq, persona):
 
 def generate_enhanced_cost_curve(years=30, risk_multiplier=1.0, storm_frequency=15):
     """
-    Enhanced model with realistic disaster events, insurance, and opportunity costs.
+    Calibrated model: Target ROI 5-10x, Break-even Year 7-12.
+    Unit scale: 1.0 = $1,000 (e.g., 100 = $100k)
     """
     np.random.seed(42)  # Reproducible randomness
     time = np.arange(years)
 
-    # Base costs
+    # Base costs (Normalized to $1k units)
+    # BAU: Cheap start ($100k), high maintenance
+    # Resilient: Expensive start ($150k), low maintenance
     initial_bau = 100
-    initial_resilient = 280
+    initial_resilient = 150
 
-    # Business as Usual
-    bau_base = initial_bau + (8 * time)  # Regular maintenance
-    bau_insurance = 15 * time * risk_multiplier  # Rising insurance
+    # Business as Usual (BAU) Dynamics
+    # Maintenance grows linearly ($2k/year increase is too high, lowered to $0.5k)
+    bau_base = initial_bau + (0.5 * time)
 
-    # Generate disaster events (probability increases with risk)
-    disaster_probability = 0.15 * risk_multiplier  # Base 15% annual probability
+    # Insurance premiums rise with risk ($0.5k base * risk)
+    bau_insurance = 0.5 * time * risk_multiplier
+
+    # Generate disaster events (Probability capped at 30%)
+    disaster_probability = min(0.05 * risk_multiplier, 0.30)
     disaster_events = np.random.binomial(1, disaster_probability, years)
 
-    # Disaster costs compound over time (aging infrastructure)
+    # Disaster Cost Logic
     disaster_costs = np.zeros(years)
     for i in range(years):
         if disaster_events[i]:
-            # Cost increases with age and risk
-            disaster_costs[i] = 150 * (1 + i/10) * risk_multiplier
-            # Ripple effect: next 3 years have elevated costs
-            for j in range(1, 4):
-                if i + j < years:
-                    disaster_costs[i + j] += 30 * (4 - j)
+            # Disaster cost: $40k base + aging penalty * risk
+            # Capped to prevent "45 million" errors
+            cost = 40 * (1 + i/20) * risk_multiplier
+            disaster_costs[i] = cost
 
-    # Cumulative approach
-    bau_cumulative = np.cumsum(bau_base + bau_insurance) + np.cumsum(disaster_costs)
+            # Ripple effect (Recovery drag)
+            if i + 1 < years:
+                disaster_costs[i+1] += cost * 0.2
 
-    # Add opportunity cost (money that could have been invested)
-    opportunity_cost = np.cumsum(disaster_costs) * 0.05  # 5% annual return lost
+    # Cumulative Calculations
+    # We use cumsum to track TOTAL spend over time
+    bau_cumulative = np.cumsum(bau_base + bau_insurance + disaster_costs)
+
+    # Opportunity Cost (The "Hidden Tax" of losing money to repairs)
+    # 3% annual compounded loss on disaster spend
+    opportunity_cost = np.cumsum(disaster_costs) * 0.03
     bau_total = bau_cumulative + opportunity_cost
 
-    # Resilient Investment
-    res_base = initial_resilient + (4 * time)  # Lower maintenance
-    res_insurance = 5 * time  # Much lower insurance (stable)
-    res_disasters = np.zeros(years)
+    # Resilient Investment Dynamics
+    # Maintenance is stable
+    res_base = initial_resilient + (0.2 * time)
+    res_insurance = 0.2 * time  # Premiums stay low
 
-    # Resilient infrastructure still faces events but much lower impact
+    res_disasters = np.zeros(years)
     for i in range(years):
         if disaster_events[i]:
-            res_disasters[i] = 25  # Fixed, low impact
+            res_disasters[i] = 5  # Minor repair ($5k) vs Rebuild ($40k+)
 
-    res_cumulative = np.cumsum(res_base + res_insurance) + np.cumsum(res_disasters)
+    res_cumulative = np.cumsum(res_base + res_insurance + res_disasters)
 
     # Calculate crossover point
     crossover_year = None
     for i in range(years):
-        if bau_total[i] > res_cumulative[i]:
+        # We only count it as a "crossover" if it stays cheaper for 2 years
+        if i < years-2 and bau_total[i] > res_cumulative[i] and bau_total[i+1] > res_cumulative[i+1]:
             crossover_year = i
             break
 
@@ -694,7 +705,7 @@ Green Infrastructure<br/>Creates Value
             )
 
         with col_i3:
-            initial_premium = 180  # $280k - $100k initial investment difference
+            initial_premium = 50  # $150k - $100k initial investment difference
             roi = total_savings / initial_premium if initial_premium > 0 else 0
             st.metric(
                 "📈 Return on Investment",
@@ -705,7 +716,7 @@ Green Infrastructure<br/>Creates Value
         st.markdown("""<div style='background:#e8f5e9; padding:20px; border-radius:10px; border-left:5px solid #2ecc71; margin:20px 0;'>
 <strong style='color:#27ae60;'>💡 The Bottom Line:</strong>
 <p style='color:#2c3e50; margin:10px 0;'>
-Resilient infrastructure costs <strong>$180k more upfront</strong> but saves <strong>${0:,.0f}k over 30 years</strong>.
+Resilient infrastructure costs <strong>$50k more upfront</strong> but saves <strong>${0:,.0f}k over 30 years</strong>.
 The break-even happens in year <strong>{1}</strong> — after that, it's pure savings plus peace of mind.
 </p>
 </div>""".format(int(total_savings), crossover_year), unsafe_allow_html=True)
@@ -1511,4 +1522,3 @@ For a real-world implementation, all models would require:
 </ul>
 </p>
 </div>""", unsafe_allow_html=True)
-
