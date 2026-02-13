@@ -934,7 +934,7 @@ if selected == "The Diagnosis":
 # Tab 3: The Solution
 # -----------------------------------------------
 if selected == "The Solution":
-    st.markdown("<h1 style='text-align:center; font-size:48px;'>🌱 The RISC Product Portfolio</h1>", unsafe_allow_html=True)
+    st.markdown("<h1 style='text-align:center; font-size:48px;'>🌱 The Product Portfolio</h1>", unsafe_allow_html=True)
     st.markdown("<h3 style='text-align:center; color:#7f8c8d;'>Data Products, not just policy papers</h3>", unsafe_allow_html=True)
 
     st.markdown("---")
@@ -1522,3 +1522,4 @@ For a real-world implementation, all models would require:
 </ul>
 </p>
 </div>""", unsafe_allow_html=True)
+
