@@ -262,38 +262,40 @@ st.markdown("""
     [data-testid="stSidebar"] .stMarkdown * {
         color: white !important;
     }
-    /* Sidebar selectbox - needs special handling for dark background */
+
+    /* Sidebar selectbox - black background with white text */
     [data-testid="stSidebar"] .stSelectbox [data-baseweb="select"],
     [data-testid="stSidebar"] .stSelectbox > div > div,
     [data-testid="stSidebar"] .stSelectbox [role="combobox"] {
-        background-color: white !important;
-        color: #2c3e50 !important;
+        background-color: #000000 !important;
+        color: white !important;
     }
 
     [data-testid="stSidebar"] .stSelectbox [data-baseweb="select"] > div {
-        background-color: white !important;
-        color: #2c3e50 !important;
+        background-color: #000000 !important;
+        color: white !important;
     }
 
-    /* Sidebar selectbox dropdown options */
+    /* Sidebar selectbox dropdown options - also black with white text */
     [data-testid="stSidebar"] .stSelectbox [role="listbox"] {
-        background-color: white !important;
+        background-color: #000000 !important;
     }
 
     [data-testid="stSidebar"] .stSelectbox [role="option"] {
-        color: #2c3e50 !important;
-        background-color: white !important;
+        color: white !important;
+        background-color: #000000 !important;
     }
 
     [data-testid="stSidebar"] .stSelectbox [role="option"]:hover {
-        background-color: #f0f0f0 !important;
+        background-color: #2c3e50 !important;
+        color: white !important;
     }
 
     /* Sidebar selectbox label stays white */
     [data-testid="stSidebar"] .stSelectbox label {
         color: white !important;
     }
-    
+
     /* Custom alert boxes */
     .stAlert {
         border-radius: 12px;
@@ -965,7 +967,7 @@ if selected == "The Diagnosis":
 # Tab 3: The Solution
 # -----------------------------------------------
 if selected == "The Solution":
-    st.markdown("<h1 style='text-align:center; font-size:48px;'>🌱 The Product Portfolio</h1>", unsafe_allow_html=True)
+    st.markdown("<h1 style='text-align:center; font-size:48px;'>🌱 The RISC Product Portfolio</h1>", unsafe_allow_html=True)
     st.markdown("<h3 style='text-align:center; color:#7f8c8d;'>Data Products, not just policy papers</h3>", unsafe_allow_html=True)
 
     st.markdown("---")
@@ -1553,5 +1555,4 @@ For a real-world implementation, all models would require:
 </ul>
 </p>
 </div>""", unsafe_allow_html=True)
-
 
