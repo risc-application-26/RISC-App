@@ -119,35 +119,38 @@ st.markdown("""
         background-color: white !important;
     }
 
-    /* EXCEPTIONS: Preserve white text in colored backgrounds - HIGHEST PRIORITY */
-    /* Elements with inline style containing 'color:white' should remain white */
-    body [style*="color:white"], body [style*="color: white"],
-    body [style*="color:white"] *, body [style*="color: white"] * {
+    /* EXCEPTIONS: Only preserve white text in DARK backgrounds */
+    /* Dark blue gradients */
+    body div[style*="background:linear-gradient"][style*="#3498db"] *,
+    body div[style*="background:linear-gradient"][style*="#2980b9"] * {
         color: white !important;
     }
 
-    body [style*="color:#ffffff"], body [style*="color: #ffffff"],
-    body [style*="color:#fff"], body [style*="color: #fff"],
-    body [style*="color:#ffffff"] *, body [style*="color: #ffffff"] *,
-    body [style*="color:#fff"] *, body [style*="color: #fff"] * {
+    /* Dark red/danger gradients */
+    body div[style*="background:linear-gradient"][style*="#e74c3c"] *,
+    body div[style*="background:linear-gradient"][style*="#c0392b"] * {
         color: white !important;
     }
 
-    /* Preserve white text in gradient backgrounds */
-    body [style*="background:linear-gradient"],
-    body [style*="background: linear-gradient"],
-    body [style*="background:linear-gradient"] *,
-    body [style*="background: linear-gradient"] * {
+    /* Dark green gradients (but NOT light green) */
+    body div[style*="background:linear-gradient"][style*="#1e3a2e"] *,
+    body div[style*="background:linear-gradient"][style*="#27ae60"] * {
         color: white !important;
     }
 
-    /* Specific overrides for colored box backgrounds */
-    body div[style*="background:#3498db"] *,
-    body div[style*="background:#2980b9"] *,
-    body div[style*="background:#e74c3c"] *,
-    body div[style*="background:#c0392b"] *,
-    body div[style*="background:#2ecc71"] *,
-    body div[style*="background:#27ae60"] * {
+    /* Explicit color:white in dark backgrounds only */
+    body div[style*="background:#3498db"][style*="color:white"],
+    body div[style*="background:#2980b9"][style*="color:white"],
+    body div[style*="background:#e74c3c"][style*="color:white"],
+    body div[style*="background:#c0392b"][style*="color:white"] {
+        color: white !important;
+    }
+
+    /* Children of explicitly white-text elements in dark backgrounds */
+    body div[style*="background:#3498db"][style*="color:white"] *,
+    body div[style*="background:#2980b9"][style*="color:white"] *,
+    body div[style*="background:#e74c3c"][style*="color:white"] *,
+    body div[style*="background:#c0392b"][style*="color:white"] * {
         color: white !important;
     }
 
