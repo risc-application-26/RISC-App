@@ -56,30 +56,40 @@ st.markdown("""
         text-shadow: 1px 1px 2px rgba(0,0,0,0.05);
     }
 
-    /* Comprehensive text visibility rules with high specificity */
-    body .main, body .main * {
+    /* Base text color - set at multiple levels for maximum compatibility */
+    html, body, .stApp {
+        color: #2c3e50;
+    }
+
+    /* Main content area - default dark text */
+    .main {
+        color: #2c3e50;
+    }
+
+    /* Streamlit markdown and text elements */
+    .stMarkdown, .stMarkdown p, .stMarkdown span, .stMarkdown div {
         color: #2c3e50 !important;
     }
 
-    /* Streamlit specific elements */
-    body .main .stMarkdown, body .main .stMarkdown * {
+    /* Text elements */
+    p, li, span, label, h4, h5, h6 {
         color: #2c3e50 !important;
     }
 
-    /* All text elements */
-    body .main p, body .main li, body .main span, body .main div, body .main label, body .main h4, body .main h5, body .main h6 {
+    /* Element container - common wrapper */
+    .element-container, .element-container * {
         color: #2c3e50 !important;
     }
 
-    /* Target all divs with content */
-    body .main div[style] {
+    /* Block container */
+    .block-container, .block-container p, .block-container span {
         color: #2c3e50 !important;
     }
 
     /* Metric components */
-    .main [data-testid="stMetricLabel"],
-    .main [data-testid="stMetricValue"],
-    .main [data-testid="stMetricDelta"] {
+    [data-testid="stMetricLabel"],
+    [data-testid="stMetricValue"],
+    [data-testid="stMetricDelta"] {
         color: #2c3e50 !important;
     }
 
@@ -94,29 +104,39 @@ st.markdown("""
     }
 
     /* Caption and helper text */
-    .main .stCaptionContainer, .main .css-1v0mbdj, .main small {
+    .stCaptionContainer, small {
         color: #2c3e50 !important;
     }
 
     /* Checkbox and radio labels */
-    .main .stCheckbox label, .main .stRadio label {
+    .stCheckbox label, .stRadio label {
         color: #2c3e50 !important;
     }
 
     /* Selectbox and slider labels */
-    .main .stSelectbox label, .main .stSlider label {
+    .stSelectbox label, .stSlider label {
         color: #2c3e50 !important;
     }
 
     /* Input field values - ensure they are visible */
-    .main .stNumberInput input,
-    .main .stTextInput input,
-    .main .stSelectbox select,
-    .main input[type="number"],
-    .main input[type="text"],
-    .main select {
+    .stNumberInput input,
+    .stTextInput input,
+    .stSelectbox select,
+    input[type="number"],
+    input[type="text"],
+    select {
         color: #2c3e50 !important;
         background-color: white !important;
+    }
+
+    /* Expander text */
+    .streamlit-expanderHeader {
+        color: #2c3e50 !important;
+    }
+
+    /* Column text */
+    [data-testid="column"] {
+        color: #2c3e50 !important;
     }
 
     /* EXCEPTIONS: Only preserve white text in DARK backgrounds */
@@ -1411,3 +1431,4 @@ For a real-world implementation, all models would require:
 </ul>
 </p>
 </div>""", unsafe_allow_html=True)
+
