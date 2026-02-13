@@ -298,7 +298,30 @@ st.markdown("""
     [data-testid="stSidebar"] .stSelectbox [role="option"] div {
         color: white !important;
     }
+    
+    /* Additional aggressive targeting for dropdown option text */
+    [data-testid="stSidebar"] .stSelectbox ul li,
+    [data-testid="stSidebar"] .stSelectbox ul li *,
+    [data-testid="stSidebar"] .stSelectbox [data-baseweb="menu"] *,
+    [data-testid="stSidebar"] .stSelectbox [data-baseweb="list"] *,
+    [data-testid="stSidebar"] .stSelectbox [data-baseweb="list-item"] *,
+    [data-testid="stSidebar"] .stSelectbox li,
+    [data-testid="stSidebar"] .stSelectbox li * {
+        color: white !important;
+        background-color: #000000 !important;
+    }
 
+    /* Force white text on any ul/li structure in sidebar selectbox */
+    [data-testid="stSidebar"] .stSelectbox ul {
+        background-color: #000000 !important;
+    }
+
+    [data-testid="stSidebar"] .stSelectbox li:hover,
+    [data-testid="stSidebar"] .stSelectbox li:hover * {
+        background-color: #2c3e50 !important;
+        color: white !important;
+    }
+    
     /* Sidebar selectbox label stays white */
     [data-testid="stSidebar"] .stSelectbox label {
         color: white !important;
@@ -1563,4 +1586,5 @@ For a real-world implementation, all models would require:
 </ul>
 </p>
 </div>""", unsafe_allow_html=True)
+
 
