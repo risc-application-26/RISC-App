@@ -262,7 +262,38 @@ st.markdown("""
     [data-testid="stSidebar"] .stMarkdown * {
         color: white !important;
     }
+    /* Sidebar selectbox - needs special handling for dark background */
+    [data-testid="stSidebar"] .stSelectbox [data-baseweb="select"],
+    [data-testid="stSidebar"] .stSelectbox > div > div,
+    [data-testid="stSidebar"] .stSelectbox [role="combobox"] {
+        background-color: white !important;
+        color: #2c3e50 !important;
+    }
 
+    [data-testid="stSidebar"] .stSelectbox [data-baseweb="select"] > div {
+        background-color: white !important;
+        color: #2c3e50 !important;
+    }
+
+    /* Sidebar selectbox dropdown options */
+    [data-testid="stSidebar"] .stSelectbox [role="listbox"] {
+        background-color: white !important;
+    }
+
+    [data-testid="stSidebar"] .stSelectbox [role="option"] {
+        color: #2c3e50 !important;
+        background-color: white !important;
+    }
+
+    [data-testid="stSidebar"] .stSelectbox [role="option"]:hover {
+        background-color: #f0f0f0 !important;
+    }
+
+    /* Sidebar selectbox label stays white */
+    [data-testid="stSidebar"] .stSelectbox label {
+        color: white !important;
+    }
+    
     /* Custom alert boxes */
     .stAlert {
         border-radius: 12px;
@@ -1522,4 +1553,5 @@ For a real-world implementation, all models would require:
 </ul>
 </p>
 </div>""", unsafe_allow_html=True)
+
 
