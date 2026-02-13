@@ -145,77 +145,6 @@ st.markdown("""
         fill: white !important;
     }
 
-    /* Selectbox dropdown styling - comprehensive */
-    .stSelectbox > div > div {
-        color: #2c3e50 !important;
-        background-color: white !important;
-    }
-
-    .stSelectbox [data-baseweb="select"] {
-        color: #2c3e50 !important;
-        background-color: white !important;
-    }
-
-    .stSelectbox [data-baseweb="select"] > div {
-        color: #2c3e50 !important;
-        background-color: white !important;
-    }
-
-    /* Selectbox control and value */
-    .stSelectbox [role="combobox"] {
-        color: #2c3e50 !important;
-        background-color: white !important;
-    }
-
-    /* Selectbox options in dropdown */
-    .stSelectbox option {
-        color: #2c3e50 !important;
-        background-color: white !important;
-    }
-
-    /* UNIVERSAL DROPDOWN FIX - Make ALL dropdowns visible first */
-    ul[role="listbox"],
-    div[role="listbox"] {
-        background-color: #000000 !important;
-    }
-
-    ul[role="listbox"] li,
-    div[role="listbox"] div[role="option"] {
-        background-color: #000000 !important;
-        color: white !important;
-    }
-
-    ul[role="listbox"] li *,
-    div[role="listbox"] div[role="option"] * {
-        color: white !important;
-    }
-
-    ul[role="listbox"] li:hover,
-    div[role="listbox"] div[role="option"]:hover {
-        background-color: #2c3e50 !important;
-    }
-
-    /* Now override for main content selectboxes - white background */
-    .main .stSelectbox ~ div[role="listbox"],
-    .stApp > div > div > .main ul[role="listbox"] {
-        background-color: white !important;
-    }
-
-    .main ul[role="listbox"] li,
-    .main div[role="listbox"] div[role="option"] {
-        background-color: white !important;
-        color: #2c3e50 !important;
-    }
-
-    .main ul[role="listbox"] li *,
-    .main div[role="listbox"] div[role="option"] * {
-        color: #2c3e50 !important;
-    }
-
-    .main ul[role="listbox"] li:hover,
-    .main div[role="listbox"] div[role="option"]:hover {
-        background-color: #f0f0f0 !important;
-    }
 
     /* Expander text */
     .streamlit-expanderHeader {
@@ -293,22 +222,33 @@ st.markdown("""
         color: white !important;
     }
 
-    /* Sidebar selectbox - The selectbox control itself (selected value display) */
-    [data-testid="stSidebar"] .stSelectbox div[data-baseweb="select"] {
-        background-color: #000000 !important;
-    }
-
-    [data-testid="stSidebar"] .stSelectbox div[data-baseweb="select"] div {
-        background-color: #000000 !important;
+    /* SIDEBAR SELECTBOX - Simple approach */
+    /* Selected value box */
+    [data-testid="stSidebar"] .stSelectbox > div:first-child > div {
+        background: black !important;
         color: white !important;
     }
 
-    /* Sidebar selectbox label */
+    /* Label */
     [data-testid="stSidebar"] .stSelectbox label {
         color: white !important;
     }
 
-    /* Note: Dropdown options styling is handled by universal rules above (lines 177-207) */
+    /* Dropdown menu */
+    [data-testid="stSidebar"] ul[role="listbox"] {
+        background: black !important;
+    }
+
+    /* Dropdown options */
+    [data-testid="stSidebar"] ul[role="listbox"] li {
+        background: black !important;
+        color: white !important;
+    }
+
+    /* Dropdown option text */
+    [data-testid="stSidebar"] ul[role="listbox"] li div {
+        color: white !important;
+    }
 
     /* Custom alert boxes */
     .stAlert {
@@ -1569,7 +1509,5 @@ For a real-world implementation, all models would require:
 </ul>
 </p>
 </div>""", unsafe_allow_html=True)
-
-
 
 
