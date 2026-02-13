@@ -145,6 +145,34 @@ st.markdown("""
         fill: white !important;
     }
 
+    /* Main content selectbox styling */
+    .stSelectbox > div > div {
+        color: #2c3e50 !important;
+        background-color: white !important;
+    }
+
+    .stSelectbox [data-baseweb="select"] {
+        color: #2c3e50 !important;
+        background-color: white !important;
+    }
+
+    /* Main content selectbox dropdown - override global black styling */
+    [data-testid="stAppViewContainer"] ul[role="listbox"] {
+        background: white !important;
+    }
+
+    [data-testid="stAppViewContainer"] ul[role="listbox"] li[role="option"] {
+        background: white !important;
+        color: #2c3e50 !important;
+    }
+
+    [data-testid="stAppViewContainer"] ul[role="listbox"] li[role="option"] * {
+        color: #2c3e50 !important;
+    }
+
+    [data-testid="stAppViewContainer"] ul[role="listbox"] li[role="option"]:hover {
+        background: #f0f0f0 !important;
+    }
 
     /* Expander text */
     .streamlit-expanderHeader {
@@ -234,20 +262,27 @@ st.markdown("""
         color: white !important;
     }
 
-    /* Dropdown menu */
-    [data-testid="stSidebar"] ul[role="listbox"] {
+    /* GLOBAL SELECTBOX DROPDOWN - catches sidebar dropdowns rendered outside sidebar */
+    /* Dropdown menu container */
+    ul[role="listbox"] {
         background: black !important;
     }
 
     /* Dropdown options */
-    [data-testid="stSidebar"] ul[role="listbox"] li {
+    ul[role="listbox"] li[role="option"] {
         background: black !important;
         color: white !important;
     }
 
-    /* Dropdown option text */
-    [data-testid="stSidebar"] ul[role="listbox"] li div {
+    /* Dropdown option text - all nested elements */
+    ul[role="listbox"] li[role="option"] * {
         color: white !important;
+        background: transparent !important;
+    }
+
+    /* Dropdown option hover state */
+    ul[role="listbox"] li[role="option"]:hover {
+        background: #1a5a3a !important;
     }
 
     /* Custom alert boxes */
@@ -1509,5 +1544,3 @@ For a real-world implementation, all models would require:
 </ul>
 </p>
 </div>""", unsafe_allow_html=True)
-
-
