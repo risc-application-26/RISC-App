@@ -291,6 +291,14 @@ st.markdown("""
         color: white !important;
     }
 
+    /* Sidebar selectbox - all text and spans within dropdown */
+    [data-testid="stSidebar"] .stSelectbox [role="listbox"] *,
+    [data-testid="stSidebar"] .stSelectbox [role="option"] *,
+    [data-testid="stSidebar"] .stSelectbox [role="option"] span,
+    [data-testid="stSidebar"] .stSelectbox [role="option"] div {
+        color: white !important;
+    }
+
     /* Sidebar selectbox label stays white */
     [data-testid="stSidebar"] .stSelectbox label {
         color: white !important;
