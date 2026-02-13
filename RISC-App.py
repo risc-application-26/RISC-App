@@ -128,7 +128,23 @@ st.markdown("""
         color: #2c3e50 !important;
         background-color: white !important;
     }
+    
+    /* Number input increment/decrement buttons */
+    .stNumberInput button {
+        color: white !important;
+        background-color: #2ecc71 !important;
+    }
 
+    .stNumberInput button:hover {
+        background-color: #27ae60 !important;
+    }
+
+    /* Number input button symbols */
+    .stNumberInput button svg {
+        color: white !important;
+        fill: white !important;
+    }
+    
     /* Selectbox dropdown styling - comprehensive */
     .stSelectbox > div > div {
         color: #2c3e50 !important;
@@ -1495,3 +1511,4 @@ For a real-world implementation, all models would require:
 </ul>
 </p>
 </div>""", unsafe_allow_html=True)
+
