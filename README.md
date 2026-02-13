@@ -6,7 +6,7 @@ A data-driven demonstration of how fintech tools can solve climate disaster resi
 
 ## 🚀 Live Demo
 
-**[Access the app on Streamlit Cloud →](https://your-app-url.streamlit.app)**
+**[Access the app on Streamlit Cloud →](https://risc-app-mnmqsowhrnud9lykr5kcpf.streamlit.app/)**
 
 No installation required — explore the interactive demo directly in your browser.
 
