@@ -129,18 +129,46 @@ st.markdown("""
         background-color: white !important;
     }
 
-    /* Selectbox dropdown styling */
+    /* Selectbox dropdown styling - comprehensive */
     .stSelectbox > div > div {
         color: #2c3e50 !important;
+        background-color: white !important;
     }
 
     .stSelectbox [data-baseweb="select"] {
         color: #2c3e50 !important;
+        background-color: white !important;
     }
 
+    .stSelectbox [data-baseweb="select"] > div {
+        color: #2c3e50 !important;
+        background-color: white !important;
+    }
+
+    /* Selectbox control and value */
+    .stSelectbox [role="combobox"] {
+        color: #2c3e50 !important;
+        background-color: white !important;
+    }
+
+    /* Selectbox options in dropdown */
     .stSelectbox option {
         color: #2c3e50 !important;
         background-color: white !important;
+    }
+
+    /* Selectbox dropdown menu */
+    .stSelectbox [role="listbox"] {
+        background-color: white !important;
+    }
+
+    .stSelectbox [role="option"] {
+        color: #2c3e50 !important;
+        background-color: white !important;
+    }
+
+    .stSelectbox [role="option"]:hover {
+        background-color: #f0f0f0 !important;
     }
 
     /* Expander text */
