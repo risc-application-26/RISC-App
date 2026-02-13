@@ -2,7 +2,7 @@
 
 **Why we engineered a system that pays us to be fragile.**
 
-A data-driven demonstration of how fintech tools can solve climate disaster resilience — built as a portfolio piece for climate-tech strategy roles.
+A data-driven demonstration of how fintech tools can solve climate disaster resilience — built as an application for RISC.
 
 ## 🚀 Live Demo
 
@@ -12,7 +12,7 @@ No installation required — explore the interactive demo directly in your brows
 
 ## What This Is
 
-RISC (Resilient Infrastructure & Sustainable Communities) demonstrates four product concepts that treat natural disasters as **market failures**, not acts of God:
+RISC (Resilient Infrastructure & Sustainable Communities) demonstrates four product concepts that treat natural disasters as **market failures**:
 
 - **💧 Liquidity Trigger**: Parametric disaster finance (pre-hurricane cash transfers)
 - **🏚️ Risk Reveal**: Climate risk labels for real estate transactions
