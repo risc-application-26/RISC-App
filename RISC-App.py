@@ -250,38 +250,51 @@ st.markdown("""
         color: white !important;
     }
 
-    /* SIDEBAR SELECTBOX - Simple approach */
-    /* Selected value box */
-    [data-testid="stSidebar"] .stSelectbox > div:first-child > div {
-        background: black !important;
-        color: white !important;
-    }
-
+    /* SIDEBAR SELECTBOX */
     /* Label */
     [data-testid="stSidebar"] .stSelectbox label {
         color: white !important;
     }
 
-    /* GLOBAL SELECTBOX DROPDOWN - catches sidebar dropdowns rendered outside sidebar */
-    /* Dropdown menu container */
-    ul[role="listbox"] {
+    /* Selected value box - multiple selectors for higher specificity */
+    [data-testid="stSidebar"] .stSelectbox > div:first-child > div,
+    [data-testid="stSidebar"] .stSelectbox [data-baseweb="select"],
+    [data-testid="stSidebar"] .stSelectbox [data-baseweb="select"] > div {
+        background-color: black !important;
+        color: white !important;
+    }
+
+    /* Sidebar selectbox input/value display */
+    [data-testid="stSidebar"] .stSelectbox input,
+    [data-testid="stSidebar"] .stSelectbox [role="button"] {
+        background-color: black !important;
+        color: white !important;
+    }
+
+    /* Sidebar selectbox dropdown - specific to sidebar context */
+    [data-testid="stSidebar"] ul[role="listbox"],
+    ul[role="listbox"][id*="persona"],
+    ul[role="listbox"][id*="sidebar"] {
         background: black !important;
     }
 
-    /* Dropdown options */
-    ul[role="listbox"] li[role="option"] {
+    [data-testid="stSidebar"] ul[role="listbox"] li[role="option"],
+    ul[role="listbox"][id*="persona"] li[role="option"],
+    ul[role="listbox"][id*="sidebar"] li[role="option"] {
         background: black !important;
         color: white !important;
     }
 
-    /* Dropdown option text - all nested elements */
-    ul[role="listbox"] li[role="option"] * {
+    [data-testid="stSidebar"] ul[role="listbox"] li[role="option"] *,
+    ul[role="listbox"][id*="persona"] li[role="option"] *,
+    ul[role="listbox"][id*="sidebar"] li[role="option"] * {
         color: white !important;
         background: transparent !important;
     }
 
-    /* Dropdown option hover state */
-    ul[role="listbox"] li[role="option"]:hover {
+    [data-testid="stSidebar"] ul[role="listbox"] li[role="option"]:hover,
+    ul[role="listbox"][id*="persona"] li[role="option"]:hover,
+    ul[role="listbox"][id*="sidebar"] li[role="option"]:hover {
         background: #1a5a3a !important;
     }
 
