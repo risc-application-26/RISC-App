@@ -271,23 +271,27 @@ st.markdown("""
         color: white !important;
     }
 
-    /* GLOBAL DROPDOWN STYLING - All dropdowns get black background by default */
-    ul[role="listbox"] {
-        background: black !important;
+    /* GLOBAL DROPDOWN STYLING - Nuclear option with maximum specificity */
+    body ul[role="listbox"] {
+        background-color: black !important;
     }
 
-    ul[role="listbox"] li[role="option"] {
-        background: black !important;
+    body ul[role="listbox"] li[role="option"] {
+        background-color: black !important;
         color: white !important;
+        font-weight: normal !important;
     }
 
-    ul[role="listbox"] li[role="option"] * {
+    body ul[role="listbox"] li[role="option"] span,
+    body ul[role="listbox"] li[role="option"] div,
+    body ul[role="listbox"] li[role="option"] p,
+    body ul[role="listbox"] li[role="option"] * {
         color: white !important;
-        background: transparent !important;
+        background-color: transparent !important;
     }
 
-    ul[role="listbox"] li[role="option"]:hover {
-        background: #1a5a3a !important;
+    body ul[role="listbox"] li[role="option"]:hover {
+        background-color: #1a5a3a !important;
     }
 
     /* Custom alert boxes */
