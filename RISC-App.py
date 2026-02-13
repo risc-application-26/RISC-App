@@ -263,66 +263,42 @@ st.markdown("""
         color: white !important;
     }
 
-    /* Sidebar selectbox - black background with white text */
-    [data-testid="stSidebar"] .stSelectbox [data-baseweb="select"],
-    [data-testid="stSidebar"] .stSelectbox > div > div,
-    [data-testid="stSidebar"] .stSelectbox [role="combobox"] {
+    /* Sidebar selectbox - complete rewrite for black background with white text */
+    /* The selectbox control itself */
+    [data-testid="stSidebar"] .stSelectbox div[data-baseweb="select"] {
+        background-color: #000000 !important;
+    }
+
+    /* All divs within the selectbox control */
+    [data-testid="stSidebar"] .stSelectbox div[data-baseweb="select"] div {
         background-color: #000000 !important;
         color: white !important;
     }
 
-    [data-testid="stSidebar"] .stSelectbox [data-baseweb="select"] > div {
+    /* The dropdown menu container */
+    [data-testid="stSidebar"] .stSelectbox div[role="listbox"] {
+        background-color: #000000 !important;
+    }
+
+    /* Each option in the dropdown */
+    [data-testid="stSidebar"] .stSelectbox div[role="listbox"] li {
         background-color: #000000 !important;
         color: white !important;
     }
 
-    /* Sidebar selectbox dropdown options - also black with white text */
-    [data-testid="stSidebar"] .stSelectbox [role="listbox"] {
-        background-color: #000000 !important;
-    }
-
-    [data-testid="stSidebar"] .stSelectbox [role="option"] {
+    /* All text elements inside options */
+    [data-testid="stSidebar"] .stSelectbox div[role="listbox"] li div,
+    [data-testid="stSidebar"] .stSelectbox div[role="listbox"] li span,
+    [data-testid="stSidebar"] .stSelectbox div[role="listbox"] li p {
         color: white !important;
-        background-color: #000000 !important;
     }
 
-    [data-testid="stSidebar"] .stSelectbox [role="option"]:hover {
+    /* Hover state for options */
+    [data-testid="stSidebar"] .stSelectbox div[role="listbox"] li:hover {
         background-color: #2c3e50 !important;
-        color: white !important;
     }
 
-    /* Sidebar selectbox - all text and spans within dropdown */
-    [data-testid="stSidebar"] .stSelectbox [role="listbox"] *,
-    [data-testid="stSidebar"] .stSelectbox [role="option"] *,
-    [data-testid="stSidebar"] .stSelectbox [role="option"] span,
-    [data-testid="stSidebar"] .stSelectbox [role="option"] div {
-        color: white !important;
-    }
-    
-    /* Additional aggressive targeting for dropdown option text */
-    [data-testid="stSidebar"] .stSelectbox ul li,
-    [data-testid="stSidebar"] .stSelectbox ul li *,
-    [data-testid="stSidebar"] .stSelectbox [data-baseweb="menu"] *,
-    [data-testid="stSidebar"] .stSelectbox [data-baseweb="list"] *,
-    [data-testid="stSidebar"] .stSelectbox [data-baseweb="list-item"] *,
-    [data-testid="stSidebar"] .stSelectbox li,
-    [data-testid="stSidebar"] .stSelectbox li * {
-        color: white !important;
-        background-color: #000000 !important;
-    }
-
-    /* Force white text on any ul/li structure in sidebar selectbox */
-    [data-testid="stSidebar"] .stSelectbox ul {
-        background-color: #000000 !important;
-    }
-
-    [data-testid="stSidebar"] .stSelectbox li:hover,
-    [data-testid="stSidebar"] .stSelectbox li:hover * {
-        background-color: #2c3e50 !important;
-        color: white !important;
-    }
-    
-    /* Sidebar selectbox label stays white */
+    /* Ensure label text stays white */
     [data-testid="stSidebar"] .stSelectbox label {
         color: white !important;
     }
@@ -1586,5 +1562,6 @@ For a real-world implementation, all models would require:
 </ul>
 </p>
 </div>""", unsafe_allow_html=True)
+
 
 
