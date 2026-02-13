@@ -271,30 +271,22 @@ st.markdown("""
         color: white !important;
     }
 
-    /* Sidebar selectbox dropdown - specific to sidebar context */
-    [data-testid="stSidebar"] ul[role="listbox"],
-    ul[role="listbox"][id*="persona"],
-    ul[role="listbox"][id*="sidebar"] {
+    /* GLOBAL DROPDOWN STYLING - All dropdowns get black background by default */
+    ul[role="listbox"] {
         background: black !important;
     }
 
-    [data-testid="stSidebar"] ul[role="listbox"] li[role="option"],
-    ul[role="listbox"][id*="persona"] li[role="option"],
-    ul[role="listbox"][id*="sidebar"] li[role="option"] {
+    ul[role="listbox"] li[role="option"] {
         background: black !important;
         color: white !important;
     }
 
-    [data-testid="stSidebar"] ul[role="listbox"] li[role="option"] *,
-    ul[role="listbox"][id*="persona"] li[role="option"] *,
-    ul[role="listbox"][id*="sidebar"] li[role="option"] * {
+    ul[role="listbox"] li[role="option"] * {
         color: white !important;
         background: transparent !important;
     }
 
-    [data-testid="stSidebar"] ul[role="listbox"] li[role="option"]:hover,
-    ul[role="listbox"][id*="persona"] li[role="option"]:hover,
-    ul[role="listbox"][id*="sidebar"] li[role="option"]:hover {
+    ul[role="listbox"] li[role="option"]:hover {
         background: #1a5a3a !important;
     }
 
