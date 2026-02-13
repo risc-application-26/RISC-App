@@ -56,19 +56,24 @@ st.markdown("""
         text-shadow: 1px 1px 2px rgba(0,0,0,0.05);
     }
 
-    /* Comprehensive text visibility rules */
-    .main, .main * {
-        color: #2c3e50;
+    /* Comprehensive text visibility rules with high specificity */
+    body .main, body .main * {
+        color: #2c3e50 !important;
     }
 
     /* Streamlit specific elements */
-    .main .stMarkdown, .main .stMarkdown * {
-        color: #2c3e50;
+    body .main .stMarkdown, body .main .stMarkdown * {
+        color: #2c3e50 !important;
     }
 
     /* All text elements */
-    .main p, .main li, .main span, .main div, .main label, .main h4, .main h5, .main h6 {
-        color: #2c3e50;
+    body .main p, body .main li, body .main span, body .main div, body .main label, body .main h4, body .main h5, body .main h6 {
+        color: #2c3e50 !important;
+    }
+
+    /* Target all divs with content */
+    body .main div[style] {
+        color: #2c3e50 !important;
     }
 
     /* Metric components */
@@ -114,20 +119,35 @@ st.markdown("""
         background-color: white !important;
     }
 
-    /* EXCEPTIONS: Preserve white text in colored backgrounds */
+    /* EXCEPTIONS: Preserve white text in colored backgrounds - HIGHEST PRIORITY */
     /* Elements with inline style containing 'color:white' should remain white */
-    [style*="color:white"], [style*="color: white"] {
+    body [style*="color:white"], body [style*="color: white"],
+    body [style*="color:white"] *, body [style*="color: white"] * {
         color: white !important;
     }
 
-    [style*="color:#ffffff"], [style*="color: #ffffff"],
-    [style*="color:#fff"], [style*="color: #fff"] {
+    body [style*="color:#ffffff"], body [style*="color: #ffffff"],
+    body [style*="color:#fff"], body [style*="color: #fff"],
+    body [style*="color:#ffffff"] *, body [style*="color: #ffffff"] *,
+    body [style*="color:#fff"] *, body [style*="color: #fff"] * {
         color: white !important;
     }
 
     /* Preserve white text in gradient backgrounds */
-    [style*="background:linear-gradient"] *[style*="color:white"],
-    [style*="background: linear-gradient"] *[style*="color:white"] {
+    body [style*="background:linear-gradient"],
+    body [style*="background: linear-gradient"],
+    body [style*="background:linear-gradient"] *,
+    body [style*="background: linear-gradient"] * {
+        color: white !important;
+    }
+
+    /* Specific overrides for colored box backgrounds */
+    body div[style*="background:#3498db"] *,
+    body div[style*="background:#2980b9"] *,
+    body div[style*="background:#e74c3c"] *,
+    body div[style*="background:#c0392b"] *,
+    body div[style*="background:#2ecc71"] *,
+    body div[style*="background:#27ae60"] * {
         color: white !important;
     }
 
