@@ -71,8 +71,14 @@ st.markdown("""
         color: #2c3e50 !important;
     }
 
-    /* Text elements */
-    p, li, span, label, h4, h5, h6 {
+    /* Text elements - EXCEPT dropdown options */
+    p:not(ul[role="listbox"] *),
+    li:not(ul[role="listbox"] *),
+    span:not(ul[role="listbox"] *),
+    label:not(ul[role="listbox"] *),
+    h4:not(ul[role="listbox"] *),
+    h5:not(ul[role="listbox"] *),
+    h6:not(ul[role="listbox"] *) {
         color: #2c3e50 !important;
     }
 
