@@ -12,7 +12,7 @@ No installation required — explore the interactive demo directly in your brows
 
 ## What This Is
 
-RISC (Resilient Infrastructure & Sustainable Communities) demonstrates four product concepts that treat natural disasters as **market failures**:
+The app demonstrates four product concepts that treat natural disasters as **market failures**:
 
 - **💧 Liquidity Trigger**: Parametric disaster finance (pre-hurricane cash transfers)
 - **🏚️ Risk Reveal**: Climate risk labels for real estate transactions
