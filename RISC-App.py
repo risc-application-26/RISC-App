@@ -129,6 +129,20 @@ st.markdown("""
         background-color: white !important;
     }
 
+    /* Selectbox dropdown styling */
+    .stSelectbox > div > div {
+        color: #2c3e50 !important;
+    }
+
+    .stSelectbox [data-baseweb="select"] {
+        color: #2c3e50 !important;
+    }
+
+    .stSelectbox option {
+        color: #2c3e50 !important;
+        background-color: white !important;
+    }
+
     /* Expander text */
     .streamlit-expanderHeader {
         color: #2c3e50 !important;
@@ -179,7 +193,29 @@ st.markdown("""
         background: linear-gradient(180deg, #1e3a2e 0%, #27ae60 100%);
     }
 
-    [data-testid="stSidebar"] * {
+    /* Sidebar text - force white on dark green gradient */
+    [data-testid="stSidebar"] *,
+    [data-testid="stSidebar"] p,
+    [data-testid="stSidebar"] span,
+    [data-testid="stSidebar"] label,
+    [data-testid="stSidebar"] div,
+    [data-testid="stSidebar"] h1,
+    [data-testid="stSidebar"] h2,
+    [data-testid="stSidebar"] h3,
+    [data-testid="stSidebar"] h4,
+    [data-testid="stSidebar"] li {
+        color: white !important;
+    }
+
+    /* Sidebar slider values */
+    [data-testid="stSidebar"] .stSlider [data-testid="stTickBarMin"],
+    [data-testid="stSidebar"] .stSlider [data-testid="stTickBarMax"] {
+        color: white !important;
+    }
+
+    /* Sidebar markdown text */
+    [data-testid="stSidebar"] .stMarkdown,
+    [data-testid="stSidebar"] .stMarkdown * {
         color: white !important;
     }
 
@@ -1431,4 +1467,3 @@ For a real-world implementation, all models would require:
 </ul>
 </p>
 </div>""", unsafe_allow_html=True)
-
